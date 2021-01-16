@@ -1,21 +1,14 @@
 import os
-import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 load_dotenv()
 
-bot = commands.Bot(command_prefix="?")
-default_intents = discord.Intents.default()
-default_intents.members = True
+class MrMeeseek(commands.Bot):
+    def __init__(self):
+        super().__init__(command_prefix="/")
 
-@bot.event
-async def on_ready():
-    print('We have logged in as {0.user}'.format(bot))
+    async def on_ready(self):
+        print(f"We have logged in as {self.user.display_name}")
 
-@bot.command(name='clear')
-async def delete(ctx, number: int):
-    messages = await ctx.channel.history(limit=number + 1).flatten()
-    for each_message in messages:
-        await each_message.delete()
-
-bot.run(os.getenv("TOKEN"))
+mrmeeseek = MrMeeseek()
+mrmeeseek.run(os.getenv("TOKEN"))
