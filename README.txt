@@ -1,2 +1,2 @@
 MR MEESEEK :
-Nice little bot starting his job so be indulgent with him 😁
+Nice little bot, it starting his job so be indulgent with him 😁
